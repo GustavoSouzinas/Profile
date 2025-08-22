@@ -1,5 +1,36 @@
-<h2>{{form.value.nome}}</h2>
-    <form [formGroup]="form">
+<div style="margin-top: 200px;">
+    <h1 *ngIf="active" style="text-align: center;"> Bem Vindo(a) ao criador de perfil!</h1>
+    <h2 *ngIf="active" style="text-align: center;"> Aperte no botão para iniciar!</h2>
+    
+</div>
+
+
+    <form [formGroup]="form" (ngSubmit)="gerar()">
         <input *ngIf="active" (click)="agir()" type="button" value="Aperte">
-        <input *ngIf="!active" type="text" placeholder="bota aqui" formControlName="nome">
+        <div *ngIf="!generating" style="margin: 200px auto;">
+            <input *ngIf="!active" type="text" placeholder="NOME DE USUÁRIO" formControlName="nome">
+            <input *ngIf="!active" type="number" placeholder="IDADE" formControlName="idade">
+            <input *ngIf="!active" type="text" placeholder="ESPECIALIDADE" formControlName="especialidade">
+            <input *ngIf="!active" type="submit" value="Aperte">
+            <h2 style="text-align: center">{{erro}}</h2>
+        </div>
+
+        
+        <div *ngIf="generating">
+            <h1 style="justify-content: center; display: flex;">SEU NOME 
+                <span style="margin-left: 200px;">{{form.get('nome')?.value}}</span>
+            </h1>
+
+            <h1 style="text-align: center;">SUA IDADE 
+            <span style="margin-left: 200px;">{{form.get('idade')?.value}} Anos</span>
+            </h1>
+
+
+            <h1 style="text-align: center;">SUAS ESPECIALIDADE
+                <span style="margin-left: 200px;">{{form.get('especialidade')?.value}}</span>
+                
+            </h1>
+
+        </div>
     </form>
+
