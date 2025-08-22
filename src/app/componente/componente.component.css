@@ -11,3 +11,15 @@ input[type="button"]{
    background-color: cornflowerblue;
    color: white;
 }
+
+input[type="text"]{
+    display: flex;
+    margin: 300px auto;
+    width: 300px;
+    height: 60px;
+    border-radius: 14px;
+}
+
+h2{
+    text-align: center;
+    }

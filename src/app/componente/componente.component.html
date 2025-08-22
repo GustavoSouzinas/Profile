@@ -1,5 +1,5 @@
-
+<h2>{{form.value.nome}}</h2>
     <form [formGroup]="form">
         <input *ngIf="active" (click)="agir()" type="button" value="Aperte">
-        <input *ngIf="!active" type="text" placeholder="bota aqui">
+        <input *ngIf="!active" type="text" placeholder="bota aqui" formControlName="nome">
     </form>
