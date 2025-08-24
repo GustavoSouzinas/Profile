@@ -40,10 +40,6 @@ input[type="submit"]{
     
 }
 
-form{
-
-}
-
 input[type="text"]{
     display: flex;
     margin: 20px auto;
