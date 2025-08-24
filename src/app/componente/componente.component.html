@@ -1,36 +1,26 @@
-<div style="margin-top: 200px;">
-    <h1 *ngIf="active" style="text-align: center;"> Bem Vindo(a) ao criador de perfil!</h1>
-    <h2 *ngIf="active" style="text-align: center;"> Aperte no botão para iniciar!</h2>
-    
-</div>
-
-
-    <form [formGroup]="form" (ngSubmit)="gerar()">
-        <input *ngIf="active" (click)="agir()" type="button" value="Aperte">
-        <div *ngIf="!generating" style="margin: 200px auto;">
-            <input *ngIf="!active" type="text" placeholder="NOME DE USUÁRIO" formControlName="nome">
-            <input *ngIf="!active" type="number" placeholder="IDADE" formControlName="idade">
-            <input *ngIf="!active" type="text" placeholder="ESPECIALIDADE" formControlName="especialidade">
-            <input *ngIf="!active" type="submit" value="Aperte">
-            <h2 style="text-align: center">{{erro}}</h2>
+<div style="margin: 200px;">
+            <h1 *ngIf="active"> Bem Vindo(a) ao criador de perfil!</h1>
+            <h2 *ngIf="active"> Aperte no botão para iniciar!</h2>
         </div>
+
+
+        <form [formGroup]="form" (ngSubmit)="gerar()">
+            <input *ngIf="active" (click)="agir()" type="button" value="INICIAR">
+            <div *ngIf="!generating" style="margin: 200px auto;">
+                <input *ngIf="!active" type="text" placeholder="NOME DE USUÁRIO" formControlName="nome">
+                <input *ngIf="!active" type="number" placeholder="IDADE" formControlName="idade">
+                <input *ngIf="!active" type="text" placeholder="ESPECIALIDADE" formControlName="especialidade">
+                <input *ngIf="!active" type="submit" value="CONCLUIR">
+                <h2>{{erro}}</h2>
+            </div>
 
         
-        <div *ngIf="generating">
-            <h1 style="justify-content: center; display: flex;">SEU NOME 
-                <span style="margin-left: 200px;">{{form.get('nome')?.value}}</span>
-            </h1>
+            <div *ngIf="generating">
+                <h2>Seu perfil:</h2>
+                <div  class="profilebox">
+                    <h1 style="color: black;">Olá, sou {{form.get('nome')?.value}}! Tenho {{form.get('idade')?.value}} anos, e estou me especializando como {{form.get('especialidade')?.value}}! 
+                    </h1>
+                </div>
+            </div>
 
-            <h1 style="text-align: center;">SUA IDADE 
-            <span style="margin-left: 200px;">{{form.get('idade')?.value}} Anos</span>
-            </h1>
-
-
-            <h1 style="text-align: center;">SUAS ESPECIALIDADE
-                <span style="margin-left: 200px;">{{form.get('especialidade')?.value}}</span>
-                
-            </h1>
-
-        </div>
-    </form>
-
+        </form>
